@@ -2,14 +2,14 @@ import { useStyles } from "../../assets/styles/styles";
 
 import LogoImage from "../../assets/imgs/logo.png";
 
-const Logo = () => {
+const Logo = (props) => {
   const styles = useStyles();
   
   return (
     <img 
-      src={LogoImage} 
+      src={LogoImage}
       alt="Logo"
-      className={styles.largeLogo} 
+      className={props.large ? styles.largeLogo : styles.logo} 
     />
   )
 };

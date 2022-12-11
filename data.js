@@ -2,15 +2,15 @@ const data = {
   categories: [
     {
       name: "Bebidas",
-      image: "./src/assets/imgs/beverages.jpg"
+      image: "/images/beverages.jpg"
     },
     {
       name: "Acompanhamentos",
-      image:"./src/assets/imgs/breakfast.jpg"
+      image:"/images/breakfast.jpg"
     },
     {
       name: "Hambúrgueres",
-      image:"./src/assets/imgs/burgers.jpg"
+      image:"/images/burgers.jpg"
     }
   ]
 };

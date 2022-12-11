@@ -10,6 +10,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Home from "./pages/Home/Home";
 import Choose from "./pages/Choose/Choose";
+import Order from "./pages/Order/Order";
 
 const theme = createTheme({
   typography: {
@@ -43,6 +44,7 @@ const App = () => {
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/choose" element={<Choose />} />
+                  <Route path="/order" element={<Order />} />
                 </Routes>
             </Paper>
           </Container>
