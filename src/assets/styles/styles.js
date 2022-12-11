@@ -4,7 +4,10 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    height: "100vh"
+    minHeight: "100vh"
+  },
+  navy: {
+    backgroundColor: "#003080"
   },
   red: {
     backgroundColor: "#FF2040",
@@ -24,12 +27,28 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     textAlign: "center"
   },
+  centerColumn: {
+    flexDirection: "column"
+  },
   green: {
     backgroundColor: "#00B020"
   },
   largeLogo: {
     height: 100
-  }
+  },
+  cards: {
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    width: "100%"
+  },
+  card: { 
+    margin: 10, 
+    width: "60%" 
+  },
+  space: { padding: 10 },
+  media: { width: 200 },
 }));
 
 export { useStyles };

@@ -1,0 +1,5 @@
+const ORDER_SET_TYPE = "ORDER_SET_TYPE";
+
+export {
+  ORDER_SET_TYPE
+};

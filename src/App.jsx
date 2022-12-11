@@ -6,7 +6,10 @@ import {
   ThemeProvider 
 } from "@mui/material";
 
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import Home from "./pages/Home/Home";
+import Choose from "./pages/Choose/Choose";
 
 const theme = createTheme({
   typography: {
@@ -32,14 +35,19 @@ const theme = createTheme({
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Container maxWidth="sm"  style={{paddingLeft: 0, paddingRight: 0}}>
-        <Paper>
-          <Home />
-        </Paper>
-      </Container>
-    </ThemeProvider>
+    <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Container maxWidth="sm"  style={{paddingLeft: 0, paddingRight: 0}}>
+            <Paper>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/choose" element={<Choose />} />
+                </Routes>
+            </Paper>
+          </Container>
+        </ThemeProvider>
+    </BrowserRouter>
   )
 };
 
