@@ -12,6 +12,8 @@ import Home from "./pages/Home/Home";
 import Choose from "./pages/Choose/Choose";
 import Order from "./pages/Order/Order";
 import Review from "./pages/Review/Review";
+import SelectPayment from "./pages/SelectPayment/SelectPayment";
+import Payment from "./pages/Payment/Payment";
 
 const theme = createTheme({
   typography: {
@@ -47,6 +49,8 @@ const App = () => {
                   <Route path="/choose" element={<Choose />} />
                   <Route path="/order" element={<Order />} />
                   <Route path="/review" element={<Review />} />
+                  <Route path="/select-payment" element={<SelectPayment />} />
+                  <Route path="/payment" element={<Payment />} />
                 </Routes>
             </Paper>
           </Container>

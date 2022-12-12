@@ -10,7 +10,8 @@ import {
   PRODUCT_LIST_FAIL,
   ORDER_ADD_ITEM,
   ORDER_REMOVE_ITEM,
-  ORDER_CLEAR
+  ORDER_CLEAR,
+  ORDER_SET_PAYMENT_TYPE
 } from "../constants/constants"
 
 const setOrderType = (dispatch, orderType) => {
@@ -36,7 +37,7 @@ const listCategories = async(dispatch) => {
       payload: error.message
     });
   }
-}
+};
 
 const listProducts = async(dispatch, categoryName = "") => {
   dispatch({ type: PRODUCT_LIST_REQUEST });
@@ -54,27 +55,34 @@ const listProducts = async(dispatch, categoryName = "") => {
       payload: error.message
     });
   }
-}
+};
 
 const addToOrder = async(dispatch, item) => {
   return dispatch({
     type: ORDER_ADD_ITEM,
     payload: item
   });
-}
+};
 
 const removeFromOrder = async(dispatch, item) => {
   return dispatch({
     type: ORDER_REMOVE_ITEM,
     payload: item
   });
-}
+};
 
 const clearOrder = async(dispatch, item) => {
   return dispatch({
     type: ORDER_CLEAR
   });
-}
+};
+
+const setPaymentType = async(dispatch, paymentType) => {
+  return dispatch({
+    type: ORDER_SET_PAYMENT_TYPE,
+    payload: paymentType
+  });
+};
 
 export { 
   setOrderType,
@@ -82,5 +90,6 @@ export {
   listProducts,
   addToOrder,
   removeFromOrder,
-  clearOrder
+  clearOrder,
+  setPaymentType
 };

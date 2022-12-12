@@ -58,6 +58,7 @@ const useStyles = makeStyles((theme) => ({
   media: { width: 200 },
   btn: { width: 120 },
   largeButton: { width: 180 },
+  xLargeButton: { fontSize: 18, height: 50, width: 300 },
   largeInput: {
     fontSize: "35px!important",
     padding: "0!important",
