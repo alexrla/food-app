@@ -48,8 +48,12 @@ const useStyles = makeStyles((theme) => ({
   },
   card: { 
     margin: 10, 
-    width: "60%" 
   },
+  cardOption: { 
+    margin: 10, 
+    width: "60%"
+  },
+  title: { marginTop: 18 },
   space: { padding: 10 },
   media: { width: 200 },
 }));

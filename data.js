@@ -64,7 +64,7 @@ const data = {
       image: "/images/t-mcdonalds-Big-Mac.jpg",
     },
     {
-      category: "Burgers",
+      category: "Hambúrgueres",
       name: "Hamburger",
       price: 1.5,
       calorie: 410,

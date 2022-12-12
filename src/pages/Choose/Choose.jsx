@@ -49,7 +49,7 @@ const Choose = () => {
             É para comer aqui ou para levar?
           </Typography>
           <Box className={styles.cards}>
-            <Card className={[styles.card, styles.space]}>
+            <Card className={[styles.cardOption, styles.space]}>
               <CardActionArea 
                 className={[styles.center, styles.centerColumn]}
                 onClick={() => chooseHandler("Eat here")}
@@ -72,7 +72,7 @@ const Choose = () => {
                 </CardContent>
               </CardActionArea>
             </Card>
-            <Card className={[styles.card, styles.space]}>
+            <Card className={[styles.cardOption, styles.space]}>
               <CardActionArea 
                 className={[styles.center, styles.centerColumn]}
                 onClick={() => chooseHandler("Take home")}

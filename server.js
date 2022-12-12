@@ -36,21 +36,24 @@ const ProductsSchema = new mongoose.Schema({
 
 const Products = mongoose.model("Products", ProductsSchema);
 
+
+/*
+  app.get("/products-list", async (req, res) => {
+    const products = await Products.insertMany(data.products);
+
+    res.send({ products });
+  });
+*/
+
 app.get("/products", async (req, res) => {
-  const products = await Products.insertMany(data.products);
-
-  res.send({ products });
-});
-
-app.get("/products/:category", async (req, res) => {
-  const { category } = req.params;
+  const { category } = req.query;
 
   const products = await Products.find(category ? { category } : {});
 
   res.send(products);
 });
 
-app.post("products", async(req, res) => {
+app.post("/products", async(req, res) => {
   const newProduct = new Products(req.body);
   
   const savedProduct = await newProduct.save();
