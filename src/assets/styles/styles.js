@@ -56,6 +56,35 @@ const useStyles = makeStyles((theme) => ({
   title: { marginTop: 18 },
   space: { padding: 10 },
   media: { width: 200 },
+  btn: { width: 120 },
+  largeButton: { width: 180 },
+  largeInput: {
+    fontSize: "35px!important",
+    padding: "0!important",
+    textAlign: "center!important",
+    width: "60px!important",
+  },
+  bordered: {
+    borderRadius: 5,
+    borderStyle: "solid",
+    borderWidth: 2,
+    margin: 5
+  },
+  row: {
+    display: "flex",
+    padding: 10
+  },
+  around: { justifyContent: "space-around" },
+  between: { justifyContent: "space-between" },
+  fixed: {
+    backgroundColor: "#FFFAFA",
+    bottom: 0,
+    position: "fixed",
+    maxWidth: 600,
+    width: "100%"
+  }
 }));
 
 export { useStyles };
+
+// backgroundColor: "#F5F5F5",

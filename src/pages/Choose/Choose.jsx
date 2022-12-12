@@ -52,11 +52,11 @@ const Choose = () => {
             <Card className={[styles.cardOption, styles.space]}>
               <CardActionArea 
                 className={[styles.center, styles.centerColumn]}
-                onClick={() => chooseHandler("Eat here")}
+                onClick={() => chooseHandler("Comer aqui")}
               >
                 <CardMedia
                   component="img"
-                  alt="Comer em"
+                  alt="Comer aqui"
                   image={Eating}
                   className={styles.media}
                 />
@@ -75,11 +75,11 @@ const Choose = () => {
             <Card className={[styles.cardOption, styles.space]}>
               <CardActionArea 
                 className={[styles.center, styles.centerColumn]}
-                onClick={() => chooseHandler("Take home")}
+                onClick={() => chooseHandler("Levar para casa")}
               >
                 <CardMedia
                   component="img"
-                  alt="Comer em"
+                  alt="Levar para casa"
                   image={Takeout}
                   className={styles.media}
                 />
