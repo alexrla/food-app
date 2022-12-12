@@ -70,6 +70,7 @@ const useStyles = makeStyles((theme) => ({
     borderWidth: 2,
     margin: 5
   },
+  borderColor: { borderColor: "#FFFFFF" },
   row: {
     display: "flex",
     padding: 10
@@ -82,7 +83,13 @@ const useStyles = makeStyles((theme) => ({
     position: "fixed",
     maxWidth: 600,
     width: "100%"
-  }
+  },
+  otherColor: {
+    backgroundColor: "#003080",
+    color: "#FFFFFF"
+  },
+  margin: { marginBottom: 115 },
+  column: { flexDirection: "column" }
 }));
 
 export { useStyles };

@@ -11,6 +11,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Choose from "./pages/Choose/Choose";
 import Order from "./pages/Order/Order";
+import Review from "./pages/Review/Review";
 
 const theme = createTheme({
   typography: {
@@ -45,6 +46,7 @@ const App = () => {
                   <Route path="/" element={<Home />} />
                   <Route path="/choose" element={<Choose />} />
                   <Route path="/order" element={<Order />} />
+                  <Route path="/review" element={<Review />} />
                 </Routes>
             </Paper>
           </Container>

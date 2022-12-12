@@ -156,7 +156,7 @@ const Order = () => {
           </Button>
         </Box>
       </Dialog>
-      <Box className={styles.main}>
+      <Box className={[styles.main, styles.margin]}>
         <Grid container>
           <Grid item md={2}>
             <List>
@@ -230,7 +230,7 @@ const Order = () => {
                             color="textSecondary"
                             component="p"
                           >
-                            {product.calorie} Cal
+                            {product.calorie} kcal
                           </Typography>
                           <Typography
                             variant="body2"
@@ -251,7 +251,7 @@ const Order = () => {
       </Box>
       <Box className={styles.fixed}>
         <Box className={[styles.bordered, styles.space]}>
-          Meu pedido - {orderType} | Taxa: R${taxPrice > 0 ? taxPrice.toFixed(2) : taxPrice} | Total: R${totalPrice > 0 ? totalPrice.toFixed(2) : totalPrice} | Items: {itemsCount}
+          Meu pedido - {orderType} | Taxa: R${taxPrice > 0 ? taxPrice.toFixed(2) : taxPrice} | Total: R${totalPrice > 0 ? totalPrice.toFixed(2) : totalPrice} | Itens: {itemsCount}
         </Box>
         <Box className={[styles.row, styles.around]}>
           <Button
