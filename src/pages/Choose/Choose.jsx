@@ -38,7 +38,7 @@ const Choose = () => {
   return (
     <Fade in={true}>
       <Box className={[styles.root, styles.navy]}>
-        <Box className={[styles.main, styles.center]}>
+        <Box className={[styles.main, styles.center, styles.space]}>
           <Logo large />
           <Typography
             variant="h3"

@@ -11,7 +11,10 @@ import {
   ORDER_ADD_ITEM,
   ORDER_REMOVE_ITEM,
   ORDER_CLEAR,
-  ORDER_SET_PAYMENT_TYPE
+  ORDER_SET_PAYMENT_TYPE,
+  ORDER_CREATE_REQUEST,
+  ORDER_CREATE_FAIL,
+  ORDER_CREATE_SUCCESS
 } from "../constants/constants"
 
 const setOrderType = (dispatch, orderType) => {
@@ -48,7 +51,7 @@ const listProducts = async(dispatch, categoryName = "") => {
     return dispatch({
       type: PRODUCT_LIST_SUCCESS,
       payload: data
-    })
+    });
   } catch (error) {
     return dispatch({
       type: PRODUCT_LIST_FAIL,
@@ -84,6 +87,24 @@ const setPaymentType = async(dispatch, paymentType) => {
   });
 };
 
+const createOrder = async(dispatch, order) => {
+  dispatch({ type: ORDER_CREATE_REQUEST });
+
+  try {
+    const { data } = await axios.post("http://localhost:5000/orders", order);
+    dispatch({
+      type: ORDER_CREATE_SUCCESS,
+      payload: data
+    });
+    return dispatch({ type: ORDER_CLEAR });
+  } catch (error) {
+    return dispatch({
+      type: ORDER_CREATE_FAIL,
+      payload: error.message
+    });
+  }
+}
+;
 export { 
   setOrderType,
   listCategories,
@@ -91,5 +112,6 @@ export {
   addToOrder,
   removeFromOrder,
   clearOrder,
-  setPaymentType
+  setPaymentType,
+  createOrder
 };

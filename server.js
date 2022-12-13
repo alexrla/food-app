@@ -34,8 +34,34 @@ const ProductsSchema = new mongoose.Schema({
   category: String
 });
 
-const Products = mongoose.model("Products", ProductsSchema);
+const OrdersSchema = new mongoose.Schema(
+  {
+    number: { type: Number, default: 0},
+    orderType: String,
+    paymentType: String,
+    isPaid: { type: Boolean, default: false },
+    isReady: { type: Boolean, default: false },
+    inProgress: { type: Boolean, default: true },
+    isCanceled: { type: Boolean, default: false },
+    isDelivered: { type: Boolean, default: false },
+    itemsPrice: Number,
+    taxPrice: Number,
+    totalPrice: Number,
+    orderItems: [
+      {
+        name: String,
+        price: Number,
+        quantity: Number
+      }
+    ]
+  },
+  {
+    timestamps: true
+  }
+);
 
+const Products = mongoose.model("Products", ProductsSchema);
+const Orders = mongoose.model("Orders", OrdersSchema);
 
 /*
   app.get("/products-list", async (req, res) => {
@@ -63,6 +89,25 @@ app.post("/products", async(req, res) => {
 
 app.get("/categories", (req, res) => {
   res.send(data.categories);
+});
+
+app.post("/orders", async(req, res) => {
+  const lastOrder = await Orders.find().sort({ number: -1 }).limit(1);
+
+  const lastNumber = lastOrder.length === 0 ? 0 : lastOrder[0].number;
+
+  if(
+    !req.body.orderType ||
+    !req.body.paymentType ||
+    !req.body.orderItems ||
+    !req.body.orderItems.length === 0
+  ) {
+    return res.send({ message: "All fields are mandatory!" });
+  }
+
+  const order = await Orders({ ...req.body, number: lastNumber + 1 }).save();
+
+  res.send(order);
 });
 
 const port = process.env.PORT || 5000;

@@ -10,7 +10,10 @@ import {
   ORDER_ADD_ITEM,
   ORDER_REMOVE_ITEM,
   ORDER_CLEAR,
-  ORDER_SET_PAYMENT_TYPE
+  ORDER_SET_PAYMENT_TYPE,
+  ORDER_CREATE_REQUEST,
+  ORDER_CREATE_SUCCESS,
+  ORDER_CREATE_FAIL
 } from "../constants/constants";
 
 const Store = createContext();
@@ -22,7 +25,8 @@ const initialState = {
     orderType: "Comer aqui",
     orderItems: [],
     paymentType: "dinheiro"
-  }
+  },
+  orderCreate: { loading: true }
 };
 
 function reducer(state, action) {
@@ -131,6 +135,21 @@ function reducer(state, action) {
           itemsCount: 0
         }
       }; 
+    
+    case ORDER_CREATE_REQUEST:
+      return { ...state, orderCreate: { loading: true }};
+
+    case ORDER_CREATE_SUCCESS:
+      return { 
+        ...state, 
+        orderCreate: { loading: false, newOrder: action.payload }
+      };
+    
+    case ORDER_CREATE_FAIL:
+      return { 
+        ...state, 
+        orderCreate: { loading: false, error: action.payload }
+      };
 
     default: 
       return state;

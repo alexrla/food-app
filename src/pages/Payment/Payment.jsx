@@ -39,6 +39,6 @@ const Payment = () => {
       </Box>
     </Box>
   )
-}
+};
 
 export default Payment;

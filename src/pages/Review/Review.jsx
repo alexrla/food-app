@@ -218,6 +218,6 @@ const Review = () => {
       </Box>
     </Box>
   )
-}
+};
 
 export default Review;

@@ -41,7 +41,7 @@ const SelectPayment = () => {
 
   return (
     <Box className={[styles.root, styles.navy]}>
-      <Box className={[styles.main, styles.center]}>
+      <Box className={[styles.main, styles.center, styles.space]}>
         <Logo large />
         <Typography
           className={styles.center}
@@ -53,7 +53,7 @@ const SelectPayment = () => {
         </Typography>
       </Box>
       <Box className={styles.cards}>
-        <Card className={[styles.card, styles.space]}>
+        <Card className={[styles.cardOption, styles.space]}>
           <CardActionArea 
             onClick={() => selectHandler("cartao")}
             className={[styles.center, styles.centerColumn]}
@@ -76,7 +76,7 @@ const SelectPayment = () => {
             </CardContent>
           </CardActionArea>
         </Card>
-        <Card className={[styles.card, styles.space]}>
+        <Card className={[styles.cardOption, styles.space]}>
           <CardActionArea 
             onClick={() => selectHandler("dinheiro")}
             className={[styles.center, styles.centerColumn]}
@@ -102,6 +102,6 @@ const SelectPayment = () => {
       </Box>
     </Box>
   )
-}
+};
 
 export default SelectPayment;
