@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
@@ -110,9 +111,14 @@ app.post("/orders", async(req, res) => {
   res.send(order);
 });
 
+app.use(express.static(path.join(__dirname, "/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/build/index.html"));
+});
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
   console.log(`Server at http://localhost:${port}!`);
 });
-
