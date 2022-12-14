@@ -1,9 +1,8 @@
-import { useStyles } from "../../assets/styles/styles";
+import styles from "../../assets/styles/Styles.module.css";
 
 import LogoImage from "../../assets/imgs/logo.png";
 
 const Logo = (props) => {
-  const styles = useStyles();
   
   return (
     <img 

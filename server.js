@@ -1,5 +1,5 @@
 const express = require("express");
-const path = require("path");
+// const path = require("path");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
@@ -25,6 +25,13 @@ mongoose.set("strictQuery", true);
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log("Connected!"))
   .catch((error) => console.log(error.message));
+
+/*
+  const CategoriesSchema = new mongoose.Schema({
+    name: String,
+    image: String
+  });
+*/
 
 const ProductsSchema = new mongoose.Schema({
   name: String,
@@ -61,16 +68,29 @@ const OrdersSchema = new mongoose.Schema(
   }
 );
 
+// const Categories = mongoose.model("Categories", CategoriesSchema);
 const Products = mongoose.model("Products", ProductsSchema);
 const Orders = mongoose.model("Orders", OrdersSchema);
 
-/*
-  app.get("/products-list", async (req, res) => {
-    const products = await Products.insertMany(data.products);
 
-    res.send({ products });
+/* 
+  app.post("/categories-list", async (req, res) => {
+    const categories = await Categories.insertMany(data.categories);
+
+    res.send({ categories });
   });
 */
+
+app.get("/categories", (req, res) => {
+  res.send(data.categories);
+});
+
+app.post("/products-list", async (req, res) => {
+  const products = await Products.insertMany(data.products);
+
+  res.send({ products });
+});
+
 
 app.get("/products", async (req, res) => {
   const { category } = req.query;
@@ -86,10 +106,6 @@ app.post("/products", async(req, res) => {
   const savedProduct = await newProduct.save();
 
   res.send(savedProduct);
-});
-
-app.get("/categories", (req, res) => {
-  res.send(data.categories);
 });
 
 app.post("/orders", async(req, res) => {
@@ -111,11 +127,13 @@ app.post("/orders", async(req, res) => {
   res.send(order);
 });
 
-app.use(express.static(path.join(__dirname, "/build")));
+// app.use(express.static(path.join(__dirname, "/build")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/build/index.html"));
-});
+/* 
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "/build/index.html"));
+  });
+*/
 
 const port = process.env.PORT || 5000;
 

@@ -15,7 +15,7 @@ import { AddCircle, RemoveCircle } from "@mui/icons-material";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { useStyles } from "../../assets/styles/styles";
+import styles from "../../assets/styles/Styles.module.css";
 import Logo from "../../components/Logo/Logo";
 
 import { Store } from "../../context/OrderInfo";
@@ -25,8 +25,6 @@ import {
 } from "../../utils/actions";
 
 const Review = () => {
-  const styles = useStyles();
-
   const navigate = useNavigate();
 
   const { state, dispatch } = useContext(Store);

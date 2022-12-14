@@ -1,12 +1,13 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import App from "./App";
 import { StoreProvider } from "./context/OrderInfo";
 
-const root = document.getElementById("root");
-ReactDOM.render(
-  <StoreProvider>
-    <App />
-  </StoreProvider>, 
-  root
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
+    <StoreProvider>
+      <App />
+    </StoreProvider>
+  </React.StrictMode>
 );

@@ -1,14 +1,12 @@
 import { Box, Button, CircularProgress, Typography } from "@mui/material";
 
-import { useStyles } from "../../assets/styles/styles";
+import styles from "../../assets/styles/Styles.module.css";
 
 import { useNavigate } from "react-router-dom";
 
 import Logo from "../../components/Logo/Logo";
 
 const Payment = () => {
-  const styles = useStyles();
-
   const navigate = useNavigate();
 
   return (

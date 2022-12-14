@@ -3,12 +3,11 @@ import { TouchApp } from "@mui/icons-material"
 
 import Logo from "../../components/Logo/Logo";
 
-import { useStyles } from "../../assets/styles/styles";
+import styles from "../../assets/styles/Styles.module.css";
 
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const styles = useStyles();
   const navigate= useNavigate();
 
   return (

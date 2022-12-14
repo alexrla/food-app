@@ -1,0 +1,144 @@
+.root {
+  display: flex;
+
+  flex-direction: column;
+
+  min-height: 100vh;
+}
+
+.navy {
+  background-color: #003080
+}
+
+.red {
+  background-color: #FF2040;
+
+  color: #FFFFFF
+}
+
+.main {
+  color: #FFFFFF;
+
+  display: flex;
+
+  flex: 1;
+
+  flex-direction: column;
+
+  overflow: auto
+}
+
+.center {
+  align-items: center;
+
+  display: flex;
+
+  gap: 10px;
+
+  justify-content: center;
+
+  text-align: center;
+}
+
+.centerColumn {
+  flex-direction: column
+}
+
+.green {
+  background-color: #00B020
+}
+
+.largeLogo {
+  height: 100px
+}
+
+.logo {
+  height: 50px
+}
+
+.cards {
+  align-items: center;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  width: 100%;
+}
+
+.card { 
+  margin: 10px; 
+}
+
+.cardOption { 
+  margin: 10px;
+  
+  width: 60%;
+}
+
+.title { margin-top: 18px }
+
+.space { padding: 10px }
+
+.media { width: 200px }
+
+.btn { width: 120px }
+
+.largeButton { width: 180px }
+
+.xLargeButton { font-size: 18px; height: 50px; width: 300px }
+
+.largeInput {
+  font-size: 35px!important;
+
+  padding: 0!important;
+
+  text-align: center!important;
+
+  width: 60px!important;
+}
+
+.bordered {
+  border-radius: 5px;
+
+  border-style: solid;
+
+  border-width: 2px;
+
+  margin: 5px;
+}
+
+.borderColor { border-color: #FFFFFF }
+
+.row {
+  display: flex;
+
+  padding: 10px;
+}
+.around { justify-content: space-around }
+
+.between { justify-content: space-between }
+
+.fixed {
+  background-color: #FFFAFA;
+
+  bottom: 0;
+
+  position: fixed;
+
+  max-width: 600px;
+
+  width: 100%
+}
+
+.otherColor {
+  background-color: #003080;
+
+  color: #FFFFFF
+}
+
+.margin { margin-bottom: 115px }
+
+.column { flex-direction: column }

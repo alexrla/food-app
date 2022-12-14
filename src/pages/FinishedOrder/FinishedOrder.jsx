@@ -8,7 +8,8 @@ import {
 
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useStyles } from "../../assets/styles/styles";
+
+import styles from "../../assets/styles/Styles.module.css";
 
 import Logo from "../../components/Logo/Logo";
 
@@ -18,8 +19,6 @@ import { createOrder } from "../../utils/actions";
 const FinishedOrder = () => {
 
   const navigate = useNavigate();
-
-  const styles = useStyles();
 
   const { state, dispatch } = useContext(Store);
 

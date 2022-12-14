@@ -19,7 +19,8 @@ import {
   Typography 
 } from "@mui/material";
 import { AddCircle, RemoveCircle } from "@mui/icons-material";
-import { useStyles } from "../../assets/styles/styles";
+
+import styles from "../../assets/styles/Styles.module.css";
 
 import { Store } from "../../context/OrderInfo";
 import { 
@@ -33,8 +34,6 @@ import {
 import Logo from "../../components/Logo/Logo";
 
 const Order = () => {
-  const styles = useStyles();
-
   const navigate = useNavigate();
 
   const { state, dispatch } = useContext(Store);

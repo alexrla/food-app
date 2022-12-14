@@ -11,7 +11,7 @@ import { useContext } from "react";
 
 import { useNavigate } from "react-router-dom";
 
-import { useStyles } from "../../assets/styles/styles";
+import styles from "../../assets/styles/Styles.module.css";
 
 import { Store } from "../../context/OrderInfo";
 
@@ -24,8 +24,6 @@ import PayHere from "../../assets/imgs/payhere.png";
 import AtCounter from "../../assets/imgs/atcounter.png";
 
 const SelectPayment = () => {
-  const styles = useStyles();
-
   const navigate = useNavigate();
 
   const { dispatch } = useContext(Store);
