@@ -42,15 +42,14 @@ const Choose = () => {
           <Typography
             variant="h3"
             component="h3"
-            className={styles.center}
+            className={styles.pt}
             gutterBottom
           >
             É para comer aqui ou para levar?
           </Typography>
           <Box className={styles.cards}>
-            <Card className={[styles.cardOption, styles.space]}>
+            <Card>
               <CardActionArea 
-                className={[styles.center, styles.centerColumn]}
                 onClick={() => chooseHandler("Comer aqui")}
               >
                 <CardMedia
@@ -71,9 +70,8 @@ const Choose = () => {
                 </CardContent>
               </CardActionArea>
             </Card>
-            <Card className={[styles.cardOption, styles.space]}>
+            <Card>
               <CardActionArea 
-                className={[styles.center, styles.centerColumn]}
                 onClick={() => chooseHandler("Levar para casa")}
               >
                 <CardMedia

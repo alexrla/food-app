@@ -89,11 +89,12 @@ const Review = () => {
             <TextField
               inputProps={{ className: styles.largeInput }}
               InputProps={{
-                bar: true,
+                // bar: true,
                 inputProps: {
                   className: styles.largeInput
                 }
               }}
+              // bar="true"
               className={styles.largeNumber}
               type="number"
               variant="filled"
@@ -102,7 +103,7 @@ const Review = () => {
             />
             <Button
               variant="contained"
-              color="primary"
+              color="secondary"
               onClick={(event) => setQuantity(quantity + 1)}
             >
               <AddCircle />
@@ -124,7 +125,7 @@ const Review = () => {
             <Button
               onClick={addToOrderHandler}
               variant="contained"
-              color="primary"
+              color="secondary"
               size="large"
               className={styles.btn}
             >
@@ -145,12 +146,12 @@ const Review = () => {
         </Box>
         <Grid container className={styles.margin}>
           {orderItems.map((orderItem) => (
-            <Grid item md={12} key={orderItem.name}>
+            <Grid item xs={12} sm={12} md={12} key={orderItem.name}>
               <Card 
                 className={styles.card}
                 onClick={() => productClickHandler(orderItem)}
               >
-                <CardActionArea>
+                <CardActionArea component="span">
                   <CardContent>
                     <Box className={[styles.row, styles.between]}>
                       <Typography

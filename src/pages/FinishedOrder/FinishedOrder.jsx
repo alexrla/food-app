@@ -45,7 +45,7 @@ const FinishedOrder = () => {
             <>
               <Typography
                 gutterBottom
-                className={styles.title}
+                className={styles.pt}
                 variant="h3"
                 component="h3"
               >

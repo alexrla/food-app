@@ -112,11 +112,12 @@ const Order = () => {
           <TextField
             inputProps={{ className: styles.largeInput }}
             InputProps={{
-              bar: true,
+              // bar: true,
               inputProps: {
                 className: styles.largeInput
               }
             }}
+            // bar="true"
             className={styles.largeNumber}
             type="number"
             variant="filled"
@@ -125,7 +126,7 @@ const Order = () => {
           />
           <Button
             variant="contained"
-            color="primary"
+            color="secondary"
             onClick={(event) => setQuantity(quantity + 1)}
           >
             <AddCircle />
@@ -147,7 +148,7 @@ const Order = () => {
           <Button
             onClick={addToOrderHandler}
             variant="contained"
-            color="primary"
+            color="secondary"
             size="large"
             className={styles.btn}
           >
@@ -157,7 +158,7 @@ const Order = () => {
       </Dialog>
       <Box className={[styles.main, styles.margin]}>
         <Grid container>
-          <Grid item md={2}>
+          <Grid item xs={2} sm={2}>
             <List>
               { loading ? (
                 <CircularProgress />
@@ -185,23 +186,23 @@ const Order = () => {
               )}
             </List>
           </Grid>
-          <Grid item md={10}>
+          <Grid item xs={10} sm={10}>
             <Typography
               gutterBottom
-              className={styles.title}
+              className={styles.space}
               variant="h2"
               component="h2"
             >
               {categoryName || "Menu"}
             </Typography>
-            <Grid container spacing={1}>
+            <Grid container >
               {loadingProducts ? (
                 <CircularProgress />
               ) : errorProducts ? (
                 <Alert severity="error">{errorProducts}</Alert>
               ) : (
                 products.map((product) => (
-                  <Grid item md={6} key={product.name}>
+                  <Grid item xs={12} sm={6} md={6} key={product.name}>
                     <Card 
                       className={styles.card}
                       onClick={() => productClickHandler(product)}

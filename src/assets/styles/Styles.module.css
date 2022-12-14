@@ -40,6 +40,15 @@
   text-align: center;
 }
 
+.flex > ul {
+  display: flex;
+}
+
+.flex > ul div img,
+.flex > ul div {
+  margin: 0 auto;
+}
+
 .centerColumn {
   flex-direction: column
 }
@@ -65,6 +74,8 @@
 
   justify-content: center;
 
+  text-align: center;
+
   width: 100%;
 }
 
@@ -72,17 +83,29 @@
   margin: 10px; 
 }
 
+
 .cardOption { 
   margin: 10px;
   
   width: 60%;
 }
 
-.title { margin-top: 18px }
 
-.space { padding: 10px }
+.cards > div { 
+  margin: 10px;
 
-.media { width: 200px }
+  padding: 10px;
+
+  width: 60%;
+}
+
+.pt { padding-top: 15px }
+
+.title { margin-top: 18px; }
+
+.space { padding: 15px }
+
+img.media { width: 200px; margin: 0 auto }
 
 .btn { width: 120px }
 

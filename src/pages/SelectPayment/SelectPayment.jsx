@@ -42,7 +42,7 @@ const SelectPayment = () => {
       <Box className={[styles.main, styles.center, styles.space]}>
         <Logo large />
         <Typography
-          className={styles.center}
+          className={styles.pt}
           gutterBottom
           variant="h3"
           component="h3"
@@ -51,10 +51,9 @@ const SelectPayment = () => {
         </Typography>
       </Box>
       <Box className={styles.cards}>
-        <Card className={[styles.cardOption, styles.space]}>
+        <Card>
           <CardActionArea 
             onClick={() => selectHandler("cartao")}
-            className={[styles.center, styles.centerColumn]}
           >
             <CardMedia
               component="img"
@@ -65,7 +64,7 @@ const SelectPayment = () => {
             <CardContent>
               <Typography 
                 gutterBottom
-                variant="h6"
+                variant="h4"
                 color="textPrimary"
                 component="p"
               >
@@ -74,10 +73,9 @@ const SelectPayment = () => {
             </CardContent>
           </CardActionArea>
         </Card>
-        <Card className={[styles.cardOption, styles.space]}>
+        <Card>
           <CardActionArea 
             onClick={() => selectHandler("dinheiro")}
-            className={[styles.center, styles.centerColumn]}
           >
             <CardMedia
               component="img"
@@ -88,7 +86,7 @@ const SelectPayment = () => {
             <CardContent>
               <Typography 
                 gutterBottom
-                variant="h6"
+                variant="h4"
                 color="textPrimary"
                 component="p"
               >
