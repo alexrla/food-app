@@ -14,7 +14,11 @@ import {
   ORDER_SET_PAYMENT_TYPE,
   ORDER_CREATE_REQUEST,
   ORDER_CREATE_FAIL,
-  ORDER_CREATE_SUCCESS
+  ORDER_CREATE_SUCCESS,
+  ORDER_LIST_REQUEST,
+  ORDER_LIST_FAIL,
+  ORDER_LIST_SUCCESS,
+  SCREEN_SET_WIDTH
 } from "../constants/constants"
 
 const setOrderType = (dispatch, orderType) => {
@@ -103,8 +107,27 @@ const createOrder = async(dispatch, order) => {
       payload: error.message
     });
   }
-}
-;
+};
+
+const listOrders = async(dispatch) => {
+  dispatch({ type: SCREEN_SET_WIDTH });
+  dispatch({ type: ORDER_LIST_REQUEST });
+
+  try {
+    const { data } = await axios.get("http://localhost:5000/orders");
+
+    return dispatch({
+      type: ORDER_LIST_SUCCESS,
+      payload: data
+    })
+  } catch (error) {
+    return dispatch({
+      type: ORDER_LIST_FAIL,
+      payload: error.message
+    });
+  }
+};
+
 export { 
   setOrderType,
   listCategories,
@@ -113,5 +136,6 @@ export {
   removeFromOrder,
   clearOrder,
   setPaymentType,
-  createOrder
+  createOrder,
+  listOrders
 };

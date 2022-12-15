@@ -108,6 +108,33 @@ app.post("/products", async(req, res) => {
   res.send(savedProduct);
 });
 
+app.get("/orders", async(req, res) => {
+  const orders = await Orders.find({ isDelivered: false, isCanceled: false });
+
+  return res.send(orders);
+});
+
+app.put("/orders/:id", async(req, res) => {
+  const order = await Orders.findById(req.params.id);
+
+  if(order) {
+    if(req.body.action === "feito") {
+      order.isReady = true;
+      order.inProgress = false;
+    } else if(req.body.action === "entregue") {
+      order.isDelivered = true;
+    } else if(req.body.action === "cancelar") {
+      order.isCanceled = true;
+    }
+
+    await order.save();
+
+    res.send({ message: "Feito" });
+  } else {
+    res.status(404).send({ message: "Pedido não encontrado!" });
+  }
+});
+
 app.post("/orders", async(req, res) => {
   const lastOrder = await Orders.find().sort({ number: -1 }).limit(1);
 

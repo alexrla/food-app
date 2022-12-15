@@ -165,3 +165,29 @@ img.media { width: 200px; margin: 0 auto }
 .margin { margin-bottom: 115px }
 
 .column { flex-direction: column }
+
+td > .gap {
+  margin-right: 10px;
+}
+
+.row > th,
+.row > td {
+  font-size: 18px;
+
+  font-weight: bold;
+}
+
+.row > th {
+  background-color: #000;
+
+
+  border-right: 1px solid #FFF;
+
+  color: #FFF;
+}
+
+.row > td {
+  background-color: #F5F5F5;
+
+  border-right: 1px solid #000;
+}

@@ -15,6 +15,11 @@ import Review from "./pages/Review/Review";
 import SelectPayment from "./pages/SelectPayment/SelectPayment";
 import Payment from "./pages/Payment/Payment";
 import FinishedOrder from "./pages/FinishedOrder/FinishedOrder";
+import Admin from "./pages/Admin/Admin";
+
+import { useContext } from "react";
+
+import { Store } from "./context/OrderInfo";
 
 const theme = createTheme({
   typography: {
@@ -34,16 +39,18 @@ const theme = createTheme({
     secondary: {
       contrastText: "#FFFFFF",
       main: "#118E16"
-    }
+    },
+    terciary: { main: "#003080", contrastText: "#FFFFFF" }
   }
 });
 
 const App = () => {
+  const { state } = useContext(Store);
   return (
     <BrowserRouter>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <Container maxWidth="sm"  style={{paddingLeft: 0, paddingRight: 0}}>
+          <Container maxWidth={state.widthScreen ? "xl" : "sm"}  style={{paddingLeft: 0, paddingRight: 0}}>
             <Paper>
                 <Routes>
                   <Route path="/" element={<Home />} />
@@ -53,6 +60,7 @@ const App = () => {
                   <Route path="/select-payment" element={<SelectPayment />} />
                   <Route path="/payment" element={<Payment />} />
                   <Route path="/finished-order" element={<FinishedOrder />} />
+                  <Route path="/admin" element={<Admin />} />
                 </Routes>
             </Paper>
           </Container>

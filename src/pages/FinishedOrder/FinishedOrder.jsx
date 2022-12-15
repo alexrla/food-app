@@ -47,15 +47,15 @@ const FinishedOrder = () => {
                 gutterBottom
                 className={styles.pt}
                 variant="h3"
-                component="h3"
+                component="p"
               >
                 Seu pedido foi feito
               </Typography>
               <Typography
                 gutterBottom
                 className={styles.title}
-                variant="h1"
-                component="h1"
+                variant="h3"
+                component="h3"
               >
                 Obrigado!
               </Typography>
@@ -63,7 +63,7 @@ const FinishedOrder = () => {
                 gutterBottom
                 className={styles.title}
                 variant="h3"
-                component="h3"
+                component="p"
               >
                 Número do pedido: {newOrder.number}
               </Typography>
@@ -72,6 +72,14 @@ const FinishedOrder = () => {
         </Box>
       </Box>
       <Box className={[styles.center, styles.space]}>
+      <Button
+          onClick={() => navigate("/admin")}
+          variant="contained"
+          // color="secondary"
+          className={[styles.xLargeButton, styles.otherColor]}
+        >
+          Ver pedidos já realizados!
+        </Button>
         <Button
           onClick={() => navigate("/")}
           variant="contained"
