@@ -18,7 +18,10 @@ import {
   ORDER_LIST_REQUEST,
   ORDER_LIST_FAIL,
   ORDER_LIST_SUCCESS,
-  SCREEN_SET_WIDTH
+  SCREEN_SET_WIDTH,
+  ORDER_QUEUE_LIST_REQUEST,
+  ORDER_QUEUE_LIST_SUCCESS,
+  ORDER_QUEUE_LIST_FAIL
 } from "../constants/constants"
 
 const setOrderType = (dispatch, orderType) => {
@@ -95,7 +98,9 @@ const createOrder = async(dispatch, order) => {
   dispatch({ type: ORDER_CREATE_REQUEST });
 
   try {
-    const { data } = await axios.post("http://localhost:5000/orders", order);
+    const { data } = await axios.post("http://localhost:5000/create-order", order);
+
+    console.log(data);
     dispatch({
       type: ORDER_CREATE_SUCCESS,
       payload: data
@@ -128,6 +133,24 @@ const listOrders = async(dispatch) => {
   }
 };
 
+const listQueue = async(dispatch) => {
+  dispatch({ type: SCREEN_SET_WIDTH });
+  dispatch({ type: ORDER_QUEUE_LIST_REQUEST });
+
+  try {
+    const { data } = await axios.get("http://localhost:5000/orders/queue");
+
+    return dispatch({
+      type: ORDER_QUEUE_LIST_SUCCESS,
+      payload: data
+    })
+  } catch (error) {
+    return dispatch({
+      type: ORDER_QUEUE_LIST_FAIL,
+      payload: error.message
+    });
+  }
+}
 export { 
   setOrderType,
   listCategories,
@@ -137,5 +160,6 @@ export {
   clearOrder,
   setPaymentType,
   createOrder,
-  listOrders
+  listOrders,
+  listQueue
 };

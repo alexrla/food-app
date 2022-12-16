@@ -17,7 +17,10 @@ import {
   ORDER_LIST_REQUEST,
   ORDER_LIST_SUCCESS,
   ORDER_LIST_FAIL,
-  SCREEN_SET_WIDTH
+  SCREEN_SET_WIDTH,
+  ORDER_QUEUE_LIST_REQUEST,
+  ORDER_QUEUE_LIST_SUCCESS,
+  ORDER_QUEUE_LIST_FAIL
 } from "../constants/constants";
 
 const Store = createContext();
@@ -26,6 +29,7 @@ const initialState = {
   widthScreen: false,
   categoryList: { loading: true },
   productList: { loading: true },
+  queueList: { loading: true },
   order: {
     orderType: "Comer aqui",
     orderItems: [],
@@ -176,6 +180,21 @@ function reducer(state, action) {
       return {
         ...state,
         orderList: { loading: false, error: action.payload }
+      };
+    
+    case ORDER_QUEUE_LIST_REQUEST:
+      return { ...state, queueList: { loading: true } };
+      
+    case ORDER_QUEUE_LIST_SUCCESS:
+      return {
+        ...state,
+        queueList: { loading: false, queue: action.payload }
+      };
+  
+    case ORDER_QUEUE_LIST_FAIL:
+      return {
+        ...state,
+        queueList: { loading: false, error: action.payload }
       };
 
     default: 

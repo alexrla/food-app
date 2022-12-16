@@ -30,7 +30,7 @@ const FinishedOrder = () => {
     if(order.orderItems.length > 0) {
       createOrder(dispatch, order);
     }
-  }, [order, dispatch]);
+  }, [order]);
 
   return (
     <Box className={[styles.root, styles.navy]}>
@@ -72,14 +72,6 @@ const FinishedOrder = () => {
         </Box>
       </Box>
       <Box className={[styles.center, styles.space]}>
-      <Button
-          onClick={() => navigate("/admin")}
-          variant="contained"
-          // color="secondary"
-          className={[styles.xLargeButton, styles.otherColor]}
-        >
-          Ver pedidos já realizados!
-        </Button>
         <Button
           onClick={() => navigate("/")}
           variant="contained"

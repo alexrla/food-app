@@ -135,7 +135,7 @@ app.put("/orders/:id", async(req, res) => {
   }
 });
 
-app.post("/orders", async(req, res) => {
+app.post("/create-order", async(req, res) => {
   const lastOrder = await Orders.find().sort({ number: -1 }).limit(1);
 
   const lastNumber = lastOrder.length === 0 ? 0 : lastOrder[0].number;
@@ -144,14 +144,28 @@ app.post("/orders", async(req, res) => {
     !req.body.orderType ||
     !req.body.paymentType ||
     !req.body.orderItems ||
-    !req.body.orderItems.length === 0
+    req.body.orderItems.length === 0
   ) {
-    return res.send({ message: "All fields are mandatory!" });
+    return res.send({ message: "Preencha todos os campos!" });
   }
 
   const order = await Orders({ ...req.body, number: lastNumber + 1 }).save();
 
   res.send(order);
+});
+
+app.get("/orders/queue", async(req, res) => {
+  const inProgressOrders = await Orders.find(
+    { inProgress: true, isCanceled: false },
+    "number"
+  );
+
+  const servingOrders = await Orders.find(
+    { isReady: true, isDelivered: false },
+    "number"
+  );
+
+  return res.send({ inProgressOrders, servingOrders });
 });
 
 /*

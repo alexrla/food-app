@@ -16,6 +16,7 @@ import SelectPayment from "./pages/SelectPayment/SelectPayment";
 import Payment from "./pages/Payment/Payment";
 import FinishedOrder from "./pages/FinishedOrder/FinishedOrder";
 import Admin from "./pages/Admin/Admin";
+import Queue from "./pages/Queue/Queue";
 
 import { useContext } from "react";
 
@@ -40,7 +41,7 @@ const theme = createTheme({
       contrastText: "#FFFFFF",
       main: "#118E16"
     },
-    terciary: { main: "#003080", contrastText: "#FFFFFF" }
+    terciary: { main: "#4169E1", contrastText: "#FFFFFF" }
   }
 });
 
@@ -61,6 +62,7 @@ const App = () => {
                   <Route path="/payment" element={<Payment />} />
                   <Route path="/finished-order" element={<FinishedOrder />} />
                   <Route path="/admin" element={<Admin />} />
+                  <Route path="/services" element={<Queue />} />
                 </Routes>
             </Paper>
           </Container>

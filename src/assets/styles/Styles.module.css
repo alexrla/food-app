@@ -191,3 +191,13 @@ td > .gap {
 
   border-right: 1px solid #000;
 }
+
+.underline {
+  text-decoration: underline;
+}
+
+.border {
+  border-bottom: 1px dashed #000;
+
+  width: 100%;
+}
